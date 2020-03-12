@@ -1,3 +1,5 @@
 var run = require('./index.js')
 
-console.log(run.execute())
+let thedata = run.execute();
+
+console.log("thedata: ", thedata)
