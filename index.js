@@ -81,12 +81,12 @@ function slowthing(){
         range: 'responsetable!C4:F4',
       }, (err, res) => {
         if (err){
-          return console.log('The API returned an error: ' + err);
+          // return console.log('The API returned an error: ' + err);
           reject('The API returned an error:')
         } 
         else if (res.data) {
-          console.log(res.data);
-          return res.data;
+          // console.log(res.data);
+          // return res.data;
           resolve(res.data)
         } 
         else {
@@ -97,5 +97,8 @@ function slowthing(){
   });
 } 
 
+// slowthing().then((result) => console.log(result),(err) => console.log(err))
 
-slowthing().then((result) => console.log(result),(err) => console.log(err))
+exports.execute = () => {
+  slowthing().then((result) => console.log("result: ", result),(err) => console.log(err))
+}
