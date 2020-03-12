@@ -1,3 +1,3 @@
 var run = require('./index.js')
 
-run.execute()
+console.log(run.execute())
