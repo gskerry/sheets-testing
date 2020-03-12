@@ -97,15 +97,17 @@ function slowthing(){
   });
 } 
 
-async function run(){
-  let payload = await slowthing();
-  console.log("payload: ", payload)
-}
-
 // slowthing().then((result) => console.log(result),(err) => console.log(err))
 
-// exports.execute = () => {
-//   slowthing().then((result) => console.log("result: ", result),(err) => console.log(err))
-// }
+async function process(){
+  let payload = await slowthing();
+  // console.log("payload: ", payload)
+  return payload
+}
 
-run();
+// process();
+
+exports.execute = () => {
+  return process()
+}
+
