@@ -101,14 +101,22 @@ function slowthing(){
 
 async function process(){
   let payload = await slowthing();
-  // console.log("payload: ", payload)
-  return payload
+  console.log("payload: ", payload)
+  // return payload
 }
 
-// process();
+process();
 
-exports.execute = () => {
-  let delivery = process();
-  return delivery
-}
+// function execute(){
+//   let delivery = process();
+//   // return delivery
+//   console.log(delivery)
+// }
+
+// execute();
+
+// exports.execute = () => {
+//   let delivery = process();
+//   return delivery
+// }
 
