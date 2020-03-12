@@ -10,7 +10,10 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 const TOKEN_PATH = 'token.json';
 
 
-exports.execute = () => {
+exports.execute = (req, resp) => {
+
+  var result;
+
   // Load client secrets from a local file.
   fs.readFile('credentials.json', (err, content) => {
     if (err) return console.log('Error loading client secret file:', err);
@@ -81,11 +84,12 @@ exports.execute = () => {
     }, (err, res) => {
       if (err) return console.log('The API returned an error: ' + err);
       if (res.data) {
-        // console.log(res.data);
-        return res.data
+        console.log(res.data);
+        return res.data;
       } else {
         console.log('No data found.');
       }
     });
   }
+
 }
