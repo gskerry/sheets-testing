@@ -10,9 +10,8 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 const TOKEN_PATH = 'token.json';
 
 
-exports.execute = (req, resp) => {
 
-  var result;
+let run = async () => {
 
   // Load client secrets from a local file.
   fs.readFile('credentials.json', (err, content) => {
@@ -76,7 +75,7 @@ exports.execute = (req, resp) => {
    * @see https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
    * @param {google.auth.OAuth2} auth The authenticated Google OAuth client.
    */
-  function listMajors(auth) {
+  await function listMajors(auth) {
     const sheets = google.sheets({version: 'v4', auth});
     sheets.spreadsheets.values.get({
       spreadsheetId: '1e-UvE0V-PITTNBY-lhmGwdo0tAQ3Czn889ByVHQCSBQ',
@@ -85,16 +84,12 @@ exports.execute = (req, resp) => {
       if (err) return console.log('The API returned an error: ' + err);
       if (res.data) {
         console.log(res.data);
-        result = res.data;
-        callback();
+        return res.data;
       } else {
         console.log('No data found.');
       }
     });
   }
-
-  function callback(){
-    return result
-  }
-
 }
+
+run().then((value) => console.log(value))
