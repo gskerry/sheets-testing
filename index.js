@@ -97,8 +97,15 @@ function slowthing(){
   });
 } 
 
+async function run(){
+  let payload = await slowthing();
+  console.log("payload: ", payload)
+}
+
 // slowthing().then((result) => console.log(result),(err) => console.log(err))
 
-exports.execute = () => {
-  slowthing().then((result) => console.log("result: ", result),(err) => console.log(err))
-}
+// exports.execute = () => {
+//   slowthing().then((result) => console.log("result: ", result),(err) => console.log(err))
+// }
+
+run();
