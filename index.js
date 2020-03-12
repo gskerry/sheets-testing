@@ -85,11 +85,16 @@ exports.execute = (req, resp) => {
       if (err) return console.log('The API returned an error: ' + err);
       if (res.data) {
         console.log(res.data);
-        return res.data;
+        result = res.data;
+        callback();
       } else {
         console.log('No data found.');
       }
     });
+  }
+
+  function callback(){
+    return result
   }
 
 }
