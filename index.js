@@ -108,6 +108,7 @@ async function process(){
 // process();
 
 exports.execute = () => {
-  return process()
+  let delivery = process();
+  return delivery
 }
 
